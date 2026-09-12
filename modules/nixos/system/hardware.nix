@@ -42,7 +42,11 @@
   ];
 
   services.udev.extraRules = ''
+    # CIDOO QK75
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="36b0", ATTRS{idProduct}=="30cc", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+
+    # Донгл VXE R1 SE+
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1085", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
 
   security.rtkit.enable = true;

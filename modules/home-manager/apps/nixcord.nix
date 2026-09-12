@@ -35,7 +35,7 @@
         youtubeAdblock.enable = true;
         fullVcpfp.enable = true;
         saveFavoriteGifs.enable = true;
-        silentTyping.enable = true;
+        silentTyping.enable = false;
         spotifyCrack.enable = true;
         petpet.enable = true;
         fakeNitro.enable = true;

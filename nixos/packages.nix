@@ -122,7 +122,10 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     matugen
+    chromium
+    proton-authenticator
     cataclysm-dda
+    aria2
     #flameshot
     bibata-cursors
     colloid-icon-theme
@@ -140,7 +143,6 @@
     pear-desktop
     spotify
     spotiflac
-    #nicotine-plus # P2P music
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
     #qdiskinfo # Disk info

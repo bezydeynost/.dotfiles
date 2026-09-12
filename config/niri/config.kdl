@@ -216,7 +216,7 @@
  	numlock
  }
  mouse {
- 	accel-speed -0.55
+ 	accel-speed -0.3
  	accel-profile "flat"
  }
  touchpad {
