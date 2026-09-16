@@ -11,9 +11,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.home-manager.follows = "home-manager";
     };
 
     nur = {
@@ -79,7 +86,9 @@
     nixpkgs,
     home-manager,
     nur,
+    chaotic,
     zapret-discord-youtube,
+    nix-cachyos-kernel,
     ...
   } @ inputs: let
     systems = [
@@ -100,8 +109,10 @@
           ./nixos/configuration.nix
           zapret-discord-youtube.nixosModules.withTestTools
           nur.modules.nixos.default
+          chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           {
+            nixpkgs.overlays = [nix-cachyos-kernel.overlays.pinned];
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;

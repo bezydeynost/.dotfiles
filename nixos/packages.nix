@@ -119,10 +119,12 @@
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
+    vscodium
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     matugen
     chromium
+    teamspeak6-client
     proton-authenticator
     cataclysm-dda
     aria2
