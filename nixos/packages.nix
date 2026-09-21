@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   fonts.packages = with pkgs; [
     adwaita-fonts
     noto-fonts
@@ -96,8 +97,8 @@
       enable = true;
       binfmt = true;
       package = pkgs.appimage-run.override {
-        extraPkgs = pkgs:
-          with pkgs; [
+        extraPkgs =
+          pkgs: with pkgs; [
             libpng
             libpng12
             libepoxy
@@ -213,7 +214,7 @@
     exfat # exFAT filesystem
     xwayland-satellite # Для нири
     xwayland # Для нири
-    udiskie #
+    udiskie
     duf # Место
     eza # Replace for ls
     ncdu # Disk usage analyzer
@@ -221,7 +222,7 @@
     tldr # Documentation
     wev # Event viewer
     ripdrag # Drag and drop
-    gpu-screen-recorder #
+    gpu-screen-recorder
     microfetch # I use nixos btw
     fastfetch
     nix-melt
@@ -321,8 +322,8 @@
     gnutar # Для .tar?
     p7zip # Это пакет для 7z?
     bzip2 # .bz2 архивы
-    unar #
-    peazip #
+    unar
+    #peazip
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
