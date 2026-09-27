@@ -1,6 +1,6 @@
 {
   networking = {
-    hostName = "nixos";
+    hostName = "femboy";
     networkmanager.enable = true;
     nftables.enable = true;
     firewall.enable = false;

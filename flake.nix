@@ -103,7 +103,7 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      femboy = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/configuration.nix

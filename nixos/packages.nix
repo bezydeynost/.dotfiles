@@ -168,6 +168,9 @@
     curl
     git
     gh
+    statix
+    gcc
+    lazygit
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
     cliphist

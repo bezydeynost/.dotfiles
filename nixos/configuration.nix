@@ -35,6 +35,8 @@
     TERMINAL = "foot";
   };
 
+  environment.localBinInPath = true;
+
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
