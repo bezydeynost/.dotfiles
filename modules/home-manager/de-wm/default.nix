@@ -1,6 +1,6 @@
 {
   imports = [
     #./niri.nix
-    ./umbriel.nix
+    #./umbriel.nix
   ];
 }

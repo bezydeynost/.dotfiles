@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
@@ -11,7 +12,7 @@
     enable = true;
     enableReleaseChecks = false;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-savanna.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark";
     fonts = {
       sansSerif = {
@@ -43,5 +44,7 @@
       dark = "Colloid";
       package = pkgs.colloid-icon-theme;
     };
+
+    targets.limine.enable = true;
   };
 }

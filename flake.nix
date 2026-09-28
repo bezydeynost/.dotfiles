@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -81,51 +80,56 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nur,
-    chaotic,
-    zapret-discord-youtube,
-    nix-cachyos-kernel,
-    ...
-  } @ inputs: let
-    systems = [
-      "aarch64-linux"
-      "x86_64-linux"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-    overlays = import ./overlays {inherit inputs;};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-    nixosConfigurations = {
-      femboy = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./nixos/configuration.nix
-          zapret-discord-youtube.nixosModules.withTestTools
-          nur.modules.nixos.default
-          chaotic.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [nix-cachyos-kernel.overlays.pinned];
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              extraSpecialArgs = {inherit inputs;};
-              users.bezydeynost = import ./home-manager/home.nix;
-              sharedModules = [
-                nur.modules.homeManager.default
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nur,
+      chaotic,
+      zapret-discord-youtube,
+      nix-cachyos-kernel,
+      ...
+    }@inputs:
+    let
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      overlays = import ./overlays { inherit inputs; };
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+      nixosConfigurations = {
+        femboy = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./nixos/configuration.nix
+            zapret-discord-youtube.nixosModules.withTestTools
+            nur.modules.nixos.default
+            chaotic.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              nixpkgs.overlays = [
+                nix-cachyos-kernel.overlays.pinned
               ];
-            };
-          }
-        ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = { inherit inputs; };
+                users.bezydeynost = import ./home-manager/home.nix;
+                sharedModules = [
+                  nur.modules.homeManager.default
+                ];
+              };
+            }
+          ];
+        };
       };
     };
-  };
 }

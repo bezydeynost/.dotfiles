@@ -11,6 +11,7 @@
     packages = [
       "org.freedownloadmanager.Manager"
       "us.zoom.Zoom"
+      "com.github.taiko2k.tauonmb"
     ];
   };
 }

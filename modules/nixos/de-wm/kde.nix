@@ -15,6 +15,7 @@
     kdePackages.kpat # Solitaire
     kdePackages.ksudoku
     kdePackages.ktorrent
+    kdePackages.elisa
   ];
 
   environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";

@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../modules/nixos/default.nix
@@ -13,8 +14,11 @@
 
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [ "root" ];
       auto-optimise-store = true;
       warn-dirty = false;
     };
@@ -65,7 +69,7 @@
 
   services.scx-loader = {
     enable = true;
-    schedsPackages = [pkgs.scx.rustscheds];
+    schedsPackages = [ pkgs.scx.rustscheds ];
     config = {
       default_sched = "scx_bpfland";
       default_mode = "Gaming";

@@ -4,28 +4,31 @@
   ...
 }:
 {
-  fonts.packages = with pkgs; [
-    adwaita-fonts
-    noto-fonts
-    noto-fonts-cjk-serif
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    noto-fonts-monochrome-emoji
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.noto
-    nerd-fonts.symbols-only
-    nerd-fonts.caskaydia-mono
-    carlito
-    terminus_font
-    inconsolata
-    font-awesome
-    liberation_ttf
-    dejavu_fonts
-    unifont
-    unifont_upper
-    times-newer-roman
-    google-fonts
-  ];
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      adwaita-fonts
+      noto-fonts
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      noto-fonts-monochrome-emoji
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
+      nerd-fonts.symbols-only
+      nerd-fonts.caskaydia-mono
+      carlito
+      corefonts
+      terminus_font
+      inconsolata
+      font-awesome
+      liberation_ttf
+      dejavu_fonts
+      unifont
+      unifont_upper
+      google-fonts
+    ];
+  };
 
   services = {
     gvfs.enable = true;
@@ -121,13 +124,15 @@
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
     vscodium
+    lipa
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
+    nicotine-plus
+    onlyoffice-desktopeditors
     matugen
     chromium
-    teamspeak6-client
+    #teamspeak6-client
     proton-authenticator
-    cataclysm-dda
     aria2
     #flameshot
     bibata-cursors
@@ -145,7 +150,6 @@
     localsend # Кидать файлы
     pear-desktop
     spotify
-    spotiflac
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
     #qdiskinfo # Disk info
@@ -168,9 +172,11 @@
     curl
     git
     gh
+    nixfmt
     statix
     gcc
     lazygit
+    fsautocomplete
     yt-dlp # Скачивать и смотреть медиа с разных сайтов
     wl-clipboard
     cliphist
@@ -236,8 +242,7 @@
     chafa
     wooz
     mpvpaper
-    libreoffice-fresh # Редактировать документы
-    onlyoffice-desktopeditors
+    libreoffice-stable # Редактировать документы
     hunspell # Проверка орфографии для libreoffice
     hunspellDicts.ru_RU # Словарь для проверки орфографии
     hunspellDicts.en_US # Словарь для проверки орфографии
@@ -262,8 +267,6 @@
     freetype # Font rendering engine
     imath # EXR format support
     openexr # High dynamic-range (HDR) image file format
-    tauon # Музыкальный плееер
-    rhythmbox # Музыкальный плееер
     picard # Массовый редактор метаданных музыки
     mousai # Опенсорс шазам. Со временем просит платный api
     mpv # Смотреть видео

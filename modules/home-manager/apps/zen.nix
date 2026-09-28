@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.zen-browser.homeModules.beta
   ];
@@ -60,6 +61,6 @@
       };
     };
   };
-  #stylix.targets.zen-browser.profileNames = ["bezydeynost"];
-  #stylix.targets.zen-browser.enable = true;
+  stylix.targets.zen-browser.profileNames = [ "bezydeynost" ];
+  stylix.targets.zen-browser.enable = true;
 }

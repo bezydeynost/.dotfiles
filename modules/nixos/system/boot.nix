@@ -1,9 +1,9 @@
 {
   config,
   pkgs,
-  inputs,
   ...
-}: {
+}:
+{
   nix.settings = {
     substituters = [
       "https://attic.xuyh0120.win/lantian"
@@ -17,11 +17,17 @@
   boot = {
     loader = {
       systemd-boot = {
-        enable = true;
+        enable = false;
         editor = true;
       };
+
+      limine = {
+        enable = true;
+        efiSupport = true;
+        enableEditor = false;
+      };
       efi.canTouchEfiVariables = true;
-      timeout = 2;
+      timeout = 5;
     };
 
     tmp.cleanOnBoot = true;
@@ -33,7 +39,7 @@
 
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     #kernelPackages = pkgs.linuxPackages_zen;
-    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernelParams = [
       "quiet"
       "splash"
