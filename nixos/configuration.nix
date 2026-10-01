@@ -23,16 +23,28 @@
       warn-dirty = false;
     };
 
-    optimise = {
-      automatic = true;
-      dates = "weekly";
-    };
+    #optimise = {
+    #  automatic = true;
+    #  dates = "weekly";
+    #};
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
+    #gc = {
+    #  automatic = true;
+    #  dates = "weekly";
+    #  options = "--delete-older-than 7d";
+    #};
+  };
+
+  services.fast-nix-gc = {
+    enable = true;
+    automatic = true;
+    dates = "weekly";
+    deleteOlderThan = "7d";
+  };
+  services.fast-nix-optimise = {
+    enable = true;
+    automatic = true;
+    dates = "weekly";
   };
 
   environment.sessionVariables = {

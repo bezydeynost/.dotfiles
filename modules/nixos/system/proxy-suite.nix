@@ -2,7 +2,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     inputs.proxy-suite.nixosModules.default
   ];
@@ -11,7 +12,10 @@
 
     tgWsProxy = {
       enable = true;
-      port = 8443;
+      listener = {
+        address = "127.0.0.1";
+        port = 8443;
+      };
       secretFile = config.age.secrets."nixos/secrets/tg-ws-proxy".path;
       fakeTlsDomain = "4pda.to";
     };

@@ -1,6 +1,6 @@
 {
   networking = {
-    hostName = "femboy";
+    hostName = "nixos";
     networkmanager.enable = true;
     nftables.enable = true;
     firewall.enable = false;
@@ -20,6 +20,6 @@
     gameFilter = "null";
   };
 
-  systemd.services.zapret-discord-youtube.after = ["network.target"];
-  systemd.services.zapret-discord-youtube.wants = ["network.target"];
+  systemd.services.zapret-discord-youtube.after = [ "network.target" ];
+  systemd.services.zapret-discord-youtube.wants = [ "network.target" ];
 }

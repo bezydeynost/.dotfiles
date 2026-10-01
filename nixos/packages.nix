@@ -93,6 +93,7 @@
         libxcb-render-util
         xcb-util-cursor
         libxcb-cursor
+        dotnet-runtime
       ];
     };
 
@@ -125,6 +126,7 @@
     inputs.agenix.packages.${pkgs.system}.default
     vscodium
     lipa
+    opencode
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     nicotine-plus
@@ -182,7 +184,7 @@
     cliphist
     trash-cli
     android-tools # ADB
-    adb-sync
+    better-adb-sync
     v4l-utils
     ntfs3g
     ffmpeg_7 # Обработка видео. Нужен всегда и везде как зависимость
@@ -329,7 +331,11 @@
     p7zip # Это пакет для 7z?
     bzip2 # .bz2 архивы
     unar
-    #peazip
+    dotnet-sdk_10
+    dotnet-sdk_11
+    mono
+    global
+    fpc
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

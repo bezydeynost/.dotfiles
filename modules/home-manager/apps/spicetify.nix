@@ -2,9 +2,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in {
+in
+{
   imports = [
     inputs.spicetify-nix.homeManagerModules.spicetify
   ];

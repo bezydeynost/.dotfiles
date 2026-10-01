@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    fast-nix-gc.url = "github:Mic92/fast-nix-gc";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -89,6 +90,7 @@
       chaotic,
       zapret-discord-youtube,
       nix-cachyos-kernel,
+      fast-nix-gc,
       ...
     }@inputs:
     let
@@ -105,13 +107,14 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
       nixosConfigurations = {
-        femboy = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./nixos/configuration.nix
             zapret-discord-youtube.nixosModules.withTestTools
             nur.modules.nixos.default
             chaotic.nixosModules.default
+            fast-nix-gc.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = [
