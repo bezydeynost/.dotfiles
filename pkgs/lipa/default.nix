@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
     owner = "satix-one";
     repo = "lipa";
     rev = "v${version}";
-    hash = "sha256-3G7g+ak7gKTsChPeJ6l2//08Cayr6MUp7bf6GXFuiT8=";
+    hash = "sha256-cTD27zMpAi8f8yohVUIVYLjpTzGRzREbqUyDSUmGZOI=";
   };
 
   cargoLock = {

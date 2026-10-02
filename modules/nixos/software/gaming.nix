@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs = {
     steam = {
       enable = true;
@@ -6,8 +6,8 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
-      fontPackages = with pkgs; [liberation_ttf];
-      extraCompatPackages = with pkgs; [proton-cachyos_x86_64_v3];
+      fontPackages = with pkgs; [ liberation_ttf ];
+      extraCompatPackages = with pkgs; [ proton-cachyos_x86_64_v3 ];
     };
     gamemode = {
       enable = true;
@@ -30,7 +30,7 @@
     wineWow64Packages.stable
     winetricks
     protontricks
-    goverlay
+    #goverlay
     faugus-launcher
     protonplus
   ];

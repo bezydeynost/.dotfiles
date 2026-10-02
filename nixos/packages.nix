@@ -168,6 +168,7 @@
     kdePackages.okular
     kdePackages.kdenlive # Видеоредактор
     kdePackages.dolphin
+    nautilus
     haruna
     openssl
     wget
