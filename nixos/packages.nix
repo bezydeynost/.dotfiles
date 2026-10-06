@@ -314,6 +314,9 @@
     glib
     nixd
     nil
+    pciutils
+    zenity
+    xdg-terminal-exec
     nodejs
     protols # LSP
     protobuf
@@ -332,6 +335,7 @@
     p7zip # Это пакет для 7z?
     bzip2 # .bz2 архивы
     unar
+    webkitgtk_6_0
     dotnet-sdk_10
     dotnet-sdk_11
     mono

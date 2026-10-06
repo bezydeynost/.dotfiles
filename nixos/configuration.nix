@@ -51,6 +51,10 @@
     TERMINAL = "foot";
   };
 
+  environment.etc."xdg/xdg-terminals.list".text = ''
+    foot.desktop
+  '';
+
   environment.localBinInPath = true;
 
   nixpkgs = {

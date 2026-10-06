@@ -730,11 +730,11 @@
         "zapret": "zapret"
       },
       "locked": {
-        "lastModified": 1790789140,
-        "narHash": "sha256-GBVuL5qNKBzu5aXYNBGjE9f47DUBJxO/31I98yoDA94=",
+        "lastModified": 1791125012,
+        "narHash": "sha256-3jo712QrLZnsKplXoFOaZt5+CIMe99K9V9mkqyinyBQ=",
         "owner": "FUFSoB",
         "repo": "proxy-suite-flake",
-        "rev": "0d138221756972f6af8c067adba6537c472e0eff",
+        "rev": "017a947a183d13980b9e75fcbfa77a5d9e3ea9ed",
         "type": "github"
       },
       "original": {
