@@ -127,6 +127,8 @@
     vscodium
     lipa
     opencode
+    antigravity-cli
+    antigravity-ide
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     nicotine-plus
@@ -335,6 +337,7 @@
     p7zip # Это пакет для 7z?
     bzip2 # .bz2 архивы
     unar
+    pnpm
     webkitgtk_6_0
     dotnet-sdk_10
     dotnet-sdk_11

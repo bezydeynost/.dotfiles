@@ -7,7 +7,6 @@
  spawn-at-startup	        	"easyeffects"
  spawn-at-startup                       "kbuildsycoca6" "--noincremental"
  spawn-at-startup                       "zen-beta"
- spawn-at-startup                       "Telegram"
 
  config-notification {
      disable-failed
@@ -180,22 +179,7 @@
  // ────────────── Workspace ──────────────
  // https://yalter.github.io/niri/Configuration%3A-Named-Workspaces.html
 
- workspace "browser" {
-    	open-on-output "DP-1"
- }
-
- workspace "chat" {
-     	open-on-output "DP-1"
- }
-
- workspace "lounge" {
- 	open-on-output "DP-1"
- }
-
- workspace "music" {
-    open-on-output "DP-1"
- }
-        screenshot-path "~/Pictures/Screenshots/Screenshot %d-%m-%y %H-%M-%S.png"
+  screenshot-path "~/Pictures/Screenshots/Screenshot %d-%m-%y %H-%M-%S.png"
  	prefer-no-csd
 
  environment {
@@ -327,8 +311,6 @@
      }
  }
 
- // browser
-
  window-rule {
  	match app-id="zen-beta$" title="^Картинка в картинке$"
  	match title="^Picture-in-Picture$"
@@ -347,29 +329,23 @@
  	match app-id="firefox"
  	match app-id="zen-beta"
  	open-maximized true
- 	open-on-workspace "browser"
  }
-
- // chat
 
  window-rule {
  	match app-id="discord"
  	match app-id="equibop"
  	open-maximized true
- 	open-on-workspace "chat"
  }
 
  window-rule {
  	match app-id="org.telegram.desktop"
+  match app-id="io.github.snowyfluffy.freshgram"
  	open-maximized true
- 	open-on-workspace "chat"
  }
 
- // lounge
 
  window-rule {
         match app-id="steam"
-        open-on-workspace "lounge"
         open-maximized true
  }
 
@@ -386,7 +362,6 @@
  	match app-id="spotify"
         match app-id="tauonmb"
         open-maximized true
- 	open-on-workspace "music"
  }
 
  // Etc
@@ -428,7 +403,7 @@
  layer-rule {
  	match namespace="awww-daemon"
  	match namespace="^quickshell$"
-        match namespace="^noctalia-wallpaper*"
+  match namespace="^noctalia-wallpaper*"
  	place-within-backdrop true
  }
 

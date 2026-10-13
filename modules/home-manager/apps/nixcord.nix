@@ -13,6 +13,7 @@
       autoUpdate = true;
       plugins = {
         clearUrls.enable = true;
+        experiments.enable = true;
         callTimer.enable = true;
         betterUploadButton.enable = true;
         gameActivityToggle.enable = true;

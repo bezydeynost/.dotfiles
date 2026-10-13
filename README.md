@@ -3,8 +3,8 @@
 | env      | attribute  |
 | -------- | ---------- |
 | de       | niri + noctalia |
-| shell    | zsh        |
-| terminal | foot    |
-| editor   | nvf(nvim)  |
+| shell    | fish        |
+| terminal | foot         |
+| editor   | nvim     |
 
 and others...

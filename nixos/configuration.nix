@@ -14,6 +14,7 @@
 
   nix = {
     settings = {
+      substituters = [ "https://mirror.yandex.ru/nixos" ];
       experimental-features = [
         "nix-command"
         "flakes"
@@ -22,29 +23,20 @@
       auto-optimise-store = true;
       warn-dirty = false;
     };
-
-    #optimise = {
-    #  automatic = true;
-    #  dates = "weekly";
-    #};
-
-    #gc = {
-    #  automatic = true;
-    #  dates = "weekly";
-    #  options = "--delete-older-than 7d";
-    #};
   };
 
-  services.fast-nix-gc = {
-    enable = true;
-    automatic = true;
-    dates = "weekly";
-    deleteOlderThan = "7d";
-  };
-  services.fast-nix-optimise = {
-    enable = true;
-    automatic = true;
-    dates = "weekly";
+  services = {
+    fast-nix-gc = {
+      enable = true;
+      automatic = true;
+      dates = "weekly";
+      deleteOlderThan = "14d";
+    };
+    fast-nix-optimise = {
+      enable = true;
+      automatic = true;
+      dates = "weekly";
+    };
   };
 
   environment.sessionVariables = {
@@ -85,10 +77,9 @@
 
   services.scx-loader = {
     enable = true;
-    schedsPackages = [ pkgs.scx.rustscheds ];
     config = {
-      default_sched = "scx_bpfland";
-      default_mode = "Gaming";
+      default_sched = "scx_cosmos";
+      default_mode = "Auto";
     };
   };
 
