@@ -4,9 +4,8 @@
     ./eza.nix
     ./fd.nix
     ./nh.nix
-    #./nvf.nix
-    ./ripgrep.nix
     ./starship.nix
+    ./ripgrep.nix
     ./zoxide.nix
     ./fish.nix
     ./ssh.nix

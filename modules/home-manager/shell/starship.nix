@@ -20,7 +20,7 @@
       username = {
         style_user = "bold 20";
         style_root = "bold red";
-        format = "[$user]($style) || ";
+        format = "[$user]($style)";
         disabled = false;
         show_always = true;
       };

@@ -6,7 +6,6 @@
  spawn-at-startup	        	"xwayland-satellite"
  spawn-at-startup	        	"easyeffects"
  spawn-at-startup                       "kbuildsycoca6" "--noincremental"
- spawn-at-startup                       "zen-beta"
 
  config-notification {
      disable-failed

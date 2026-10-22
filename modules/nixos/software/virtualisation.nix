@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   virtualisation = {
     docker = {
       enable = true;
@@ -7,8 +7,7 @@
       };
     };
 
-    waydroid.enable = true;
-    waydroid.package = pkgs.waydroid-nftables;
+    waydroid.enable = false;
 
     spiceUSBRedirection.enable = true;
 
@@ -19,5 +18,5 @@
   };
 
   # Network autostart - `virsh net-autostart default` в терминале
-  programs.virt-manager.enable = false; # https://nixos.wiki/wiki/Virt-manager
+  programs.virt-manager.enable = true; # https://nixos.wiki/wiki/Virt-manager
 }

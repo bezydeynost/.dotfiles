@@ -79,6 +79,11 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    helium-flake = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -88,9 +93,10 @@
       home-manager,
       nur,
       chaotic,
-      zapret-discord-youtube,
       nix-cachyos-kernel,
+      zapret-discord-youtube,
       fast-nix-gc,
+      helium-flake,
       ...
     }@inputs:
     let
@@ -119,6 +125,7 @@
             {
               nixpkgs.overlays = [
                 nix-cachyos-kernel.overlays.pinned
+                helium-flake.overlays.default
               ];
               home-manager = {
                 useGlobalPkgs = true;

@@ -7,16 +7,10 @@
         flakeDir = "~/.dotfiles";
       in
       {
-        rbs = "sudo nixos-rebuild switch --flake ${flakeDir}"; # Применить новый конфиг сразу
-        rbb = "sudo nixos-rebuild boot --flake ${flakeDir}"; # Применить новый конфиг после ребута пк
-
-        # Обновить все flake inputs до последних версий. Возможно это аналог "sudo pacman -Sy" на Arch Linux
-        # Если после upd дописать название инпута из flake.nix, то обновится только указанный инпут
+        rbs = "sudo nixos-rebuild switch --flake ${flakeDir}";
+        rbb = "sudo nixos-rebuild boot --flake ${flakeDir}";
         upd = "sudo nix flake update --flake ${flakeDir}";
-
-        # Garbage collector. Удалить все не используемые пакеты (например после обновы)
         nixgrb = "sudo nix-collect-garbage -d";
-
         pkgs = "v ${flakeDir}/nixos/packages.nix";
         v = "nvim";
         rm = "rm -i";
@@ -32,9 +26,11 @@
         f = "fastfetch";
         py = "python";
         find = "fd";
-        grep = "rg -e";
         niriconf = "nvim ${flakeDir}/config/niri/config.kdl";
         flake = "nvim ${flakeDir}/flake.nix";
+        warp-on = "warp-cli connect";
+        warp-off = "warp-cli disconnect";
+        warp-status = "warp-cli status";
       };
 
     plugins = [

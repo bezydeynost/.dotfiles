@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }:
 {
@@ -14,7 +15,7 @@
 
   nix = {
     settings = {
-      substituters = [ "https://mirror.yandex.ru/nixos" ];
+      # substituters = [ "https://mirror.yandex.ru/nixos" ];
       experimental-features = [
         "nix-command"
         "flakes"
@@ -23,6 +24,9 @@
       auto-optimise-store = true;
       warn-dirty = false;
     };
+    extraOptions = ''
+      !include ${config.age.secrets."github-token".path}
+    '';
   };
 
   services = {
@@ -37,17 +41,28 @@
       automatic = true;
       dates = "weekly";
     };
+    scx-loader = {
+      enable = true;
+      config = {
+        default_sched = "scx_cosmos";
+        default_mode = "Auto";
+      };
+    };
+    fstrim = {
+      enable = true;
+      interval = "weekly";
+    };
   };
 
-  environment.sessionVariables = {
-    TERMINAL = "foot";
+  environment = {
+    sessionVariables = {
+      TERMINAL = "foot";
+    };
+    etc."xdg/xdg-terminals.list".text = ''
+      foot.desktop
+    '';
+    localBinInPath = true;
   };
-
-  environment.etc."xdg/xdg-terminals.list".text = ''
-    foot.desktop
-  '';
-
-  environment.localBinInPath = true;
 
   nixpkgs = {
     config.allowUnfree = true;
@@ -75,24 +90,11 @@
     enable = true;
   };
 
-  services.scx-loader = {
-    enable = true;
-    config = {
-      default_sched = "scx_cosmos";
-      default_mode = "Auto";
-    };
-  };
-
   zramSwap = {
     enable = true;
     algorithm = "zstd";
     memoryPercent = 20;
     priority = 100;
-  };
-
-  services.fstrim = {
-    enable = true;
-    interval = "weekly";
   };
 
   system.stateVersion = "26.11";

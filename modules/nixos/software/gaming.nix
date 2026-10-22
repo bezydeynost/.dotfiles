@@ -7,7 +7,10 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
       fontPackages = with pkgs; [ liberation_ttf ];
-      extraCompatPackages = with pkgs; [ proton-cachyos_x86_64_v3 ];
+      extraCompatPackages = with pkgs; [
+        nur.repos.quriosity.proton-cachyos-v3
+        nur.repos.quriosity.proton-wineland-v3
+      ];
     };
     gamemode = {
       enable = true;
@@ -19,10 +22,6 @@
     };
     gamescope.enable = true;
   };
-
-  services.flatpak.packages = [
-    "ru.linux_gaming.PortProton"
-  ];
 
   environment.systemPackages = with pkgs; [
     steam-run

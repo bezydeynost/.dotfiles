@@ -125,40 +125,33 @@
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
     vscodium
+    firefox
+    helium
+    nix-init
     lipa
     opencode
     antigravity-cli
-    antigravity-ide
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.pano-scrobbler-flake.packages.${system}.default
     nicotine-plus
     onlyoffice-desktopeditors
     matugen
-    chromium
-    #teamspeak6-client
     proton-authenticator
     aria2
-    #flameshot
     bibata-cursors
-    colloid-icon-theme
     qbittorrent-enhanced
     bitwarden-desktop
     throne
     dialect
     mission-center
-    #gnome-disk-utility
     pavucontrol # PulseAudio Volume Control
     brightnessctl # Brightness control for laptop
-    crosspipe # Прокидка звука в другие источники pipewire
     gparted # Форматирование дисков
     localsend # Кидать файлы
     pear-desktop
     spotify
     micro # Terminal text editor
     parabolic # Frontend yt-dlp
-    #qdiskinfo # Disk info
-    #kdiskmark
-    waypaper # Wallpaper
     gnome-calculator # Calculator
     gpu-screen-recorder-gtk # Fast record video
     bazaar # Check Flatpaks
@@ -176,6 +169,7 @@
     wget
     curl
     git
+    git-lfs
     gh
     nixfmt
     statix
@@ -251,13 +245,8 @@
     hunspell # Проверка орфографии для libreoffice
     hunspellDicts.ru_RU # Словарь для проверки орфографии
     hunspellDicts.en_US # Словарь для проверки орфографии
-    hunspellDicts.uk_UA # EСловарь для проверки орфографии
     yazi # Terminal File manager
     ffmpegthumbnailer # A lightweight video thumbnailer
-    kdePackages.kimageformats # Image format plugins for Qt 6
-    kdePackages.qtimageformats # Plugins for additional image formats: TIFF, MNG, TGA, WBMP
-    kdePackages.qtsvg # SVG support
-    kdePackages.karchive # Plugin for Krita and OpenRaster images
     webp-pixbuf-loader # .webp support (what's this?)
     gdk-pixbuf.dev # Library for image loading and manipulation
     libwebp # .webp support
@@ -270,23 +259,14 @@
     jxrlib # JPEG XR image support
     poppler # PDF support
     freetype # Font rendering engine
-    imath # EXR format support
-    openexr # High dynamic-range (HDR) image file format
     picard # Массовый редактор метаданных музыки
-    mousai # Опенсорс шазам. Со временем просит платный api
     mpv # Смотреть видео
     feh # Нужен в большом количестве софта как зависимость. Может в avif, но криво
     loupe
     krita # Рисовать
-    #gimp
     obsidian # Заметки
     neovim
     vim
-    adwaita-icon-theme
-    adwaita-qt
-    adwaita-qt6
-    papirus-icon-theme
-    material-icons
     glslang
     spirv-cross
     spirv-headers
@@ -318,7 +298,6 @@
     nil
     pciutils
     zenity
-    xdg-terminal-exec
     nodejs
     protols # LSP
     protobuf
@@ -327,10 +306,9 @@
     v2ray # VPN
     xray # VPN
     sing-box # VPN
-    lmstudio # Local AP
     #ventoy-full-gtk
     zip # Архивировать
-    file-roller # Архиватор от gnome
+    #file-roller # Архиватор от gnome
     unzip # Разархивировать
     unrar # Разархивировать
     gnutar # Для .tar?
@@ -338,6 +316,7 @@
     bzip2 # .bz2 архивы
     unar
     pnpm
+    python313Packages.pip
     webkitgtk_6_0
     dotnet-sdk_10
     dotnet-sdk_11
