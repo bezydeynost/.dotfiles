@@ -13,7 +13,7 @@
 
     libvirtd = {
       # https://nixos.wiki/wiki/Libvirt
-      enable = false;
+      enable = true;
     };
   };
 

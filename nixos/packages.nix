@@ -4,32 +4,6 @@
   ...
 }:
 {
-  fonts = {
-    fontDir.enable = true;
-    packages = with pkgs; [
-      adwaita-fonts
-      noto-fonts
-      noto-fonts-cjk-serif
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      noto-fonts-monochrome-emoji
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
-      nerd-fonts.symbols-only
-      nerd-fonts.caskaydia-mono
-      carlito
-      corefonts
-      terminus_font
-      inconsolata
-      font-awesome
-      liberation_ttf
-      dejavu_fonts
-      unifont
-      unifont_upper
-      google-fonts
-    ];
-  };
-
   services = {
     gvfs.enable = true;
     flatpak.enable = true;
@@ -104,7 +78,6 @@
         extraPkgs =
           pkgs: with pkgs; [
             libpng
-            libpng12
             libepoxy
             pcre2
             double-conversion
@@ -120,15 +93,15 @@
     niri.enable = true;
     niri.useNautilus = false;
     kdeconnect.enable = true;
+    mango.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
     vscodium
-    firefox
     helium
     nix-init
-    lipa
+    #lipa
     opencode
     antigravity-cli
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -308,7 +281,6 @@
     sing-box # VPN
     #ventoy-full-gtk
     zip # Архивировать
-    #file-roller # Архиватор от gnome
     unzip # Разархивировать
     unrar # Разархивировать
     gnutar # Для .tar?

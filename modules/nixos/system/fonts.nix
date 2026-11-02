@@ -28,4 +28,16 @@
       google-fonts
     ];
   };
+
+  systemd.user.services.sync-fonts = {
+    description = "Copy system fonts to ~/.local/share/fonts for OnlyOffice";
+    wantedBy = [ "default.target" ];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      mkdir -p "$HOME/.local/share/fonts/nix"
+      ${pkgs.rsync}/bin/rsync -rL --delete --chmod=D755,F644 \
+        /run/current-system/sw/share/X11/fonts/ \
+        "$HOME/.local/share/fonts/nix/"
+    '';
+  };
 }

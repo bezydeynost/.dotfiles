@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     fast-nix-gc.url = "github:Mic92/fast-nix-gc";
+    happ-nix.url = "github:d4hl/happ-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -67,11 +68,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zapret-discord-youtube = {
-      url = "github:kartavkun/zapret-discord-youtube";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -84,6 +80,11 @@
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -94,9 +95,10 @@
       nur,
       chaotic,
       nix-cachyos-kernel,
-      zapret-discord-youtube,
       fast-nix-gc,
       helium-flake,
+      happ-nix,
+      mangowm,
       ...
     }@inputs:
     let
@@ -117,8 +119,9 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./nixos/configuration.nix
-            zapret-discord-youtube.nixosModules.withTestTools
+            happ-nix.nixosModules.default
             nur.modules.nixos.default
+            mangowm.nixosModules.mango
             chaotic.nixosModules.default
             fast-nix-gc.nixosModules.default
             home-manager.nixosModules.home-manager
@@ -133,9 +136,6 @@
                 backupFileExtension = "backup";
                 extraSpecialArgs = { inherit inputs; };
                 users.bezydeynost = import ./home-manager/home.nix;
-                sharedModules = [
-                  nur.modules.homeManager.default
-                ];
               };
             }
           ];

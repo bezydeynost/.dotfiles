@@ -4,25 +4,25 @@
   ...
 }:
 {
-  #nix.settings = {
-  #substituters = [
-  #  "https://attic.xuyh0120.win/lantian"
-  #  "https://cache.xinux.uz"
-  #];
-  #trusted-public-keys = [
-  #  "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-  #  "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
-  #];
-  #};
+  nix.settings = {
+    substituters = [
+      "https://cache.lantian.pub/lantian"
+      "https://cache.xinux.uz"
+    ];
+    trusted-public-keys = [
+      "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
+      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+    ];
+  };
   boot = {
     loader = {
       systemd-boot = {
-        enable = false;
+        enable = true;
         editor = true;
       };
 
       limine = {
-        enable = true;
+        enable = false;
         efiSupport = true;
         enableEditor = false;
       };
@@ -37,8 +37,8 @@
       options v4l2loopback exclusive_caps=1 devices=1 video_nr=1 card_label="Virtual Camera"
     '';
 
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
-    #kernelPackages = pkgs.linuxPackages_zen;
+    #kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    kernelPackages = pkgs.linuxPackages_zen;
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernelParams = [
       "quiet"

@@ -6,11 +6,10 @@
     firewall.enable = false;
   };
 
-  #services.zapret-discord-youtube = {
-  #  enable = true;
-  #  configName = "general(ALT9)";
-  #  gameFilter = "null";
-  #};
+  programs.happ = {
+    enable = true;
+    tunMode.enable = true;
+  };
 
   programs.throne = {
     enable = true;
