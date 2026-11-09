@@ -268,6 +268,9 @@
     pciutils
     zenity
     nodejs
+    v2ray # VPN
+    xray # VPN
+    sing-box # VPN
     protols # LSP
     protobuf
     protoc-gen-go
