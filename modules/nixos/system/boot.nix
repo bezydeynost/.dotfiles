@@ -18,16 +18,10 @@
     loader = {
       systemd-boot = {
         enable = true;
-        editor = true;
-      };
-
-      limine = {
-        enable = false;
-        efiSupport = true;
-        enableEditor = false;
+        editor = false;
       };
       efi.canTouchEfiVariables = true;
-      timeout = 5;
+      timeout = 2;
     };
 
     tmp.cleanOnBoot = true;

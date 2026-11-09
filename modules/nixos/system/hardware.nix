@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   hardware = {
     keyboard.qmk.enable = true;
     amdgpu.overdrive.enable = true;
@@ -20,11 +20,11 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  systemd.packages = with pkgs; [lact];
+  systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.enable = true;
   systemd.services.lact = {
     description = "LACT daemon";
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = "${pkgs.lact}/bin/lact daemon";
     };
@@ -55,10 +55,11 @@
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       pulse.enable = true;
-      jack.enable = true;
     };
   };
 
@@ -66,12 +67,30 @@
     "/mnt/HDD1" = {
       device = "/dev/disk/by-uuid/72fa6ecf-de34-4df9-990f-f4f85785ddf7";
       fsType = "ext4";
-      options = ["defaults" "noatime" "nosuid" "nodev" "nofail" "x-gvfs-show" "noauto" "x-systemd.automount"];
+      options = [
+        "defaults"
+        "noatime"
+        "nosuid"
+        "nodev"
+        "nofail"
+        "x-gvfs-show"
+        "noauto"
+        "x-systemd.automount"
+      ];
     };
     "/mnt/HDD2" = {
       device = "/dev/disk/by-uuid/2f934d2b-ad39-46c8-a4ce-ea6a6b6e1912";
       fsType = "ext4";
-      options = ["defaults" "noatime" "nosuid" "nodev" "nofail" "x-gvfs-show" "noauto" "x-systemd.automount"];
+      options = [
+        "defaults"
+        "noatime"
+        "nosuid"
+        "nodev"
+        "nofail"
+        "x-gvfs-show"
+        "noauto"
+        "x-systemd.automount"
+      ];
     };
   };
 }

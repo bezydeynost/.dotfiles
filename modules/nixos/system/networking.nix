@@ -3,7 +3,11 @@
     hostName = "nixos";
     networkmanager.enable = true;
     nftables.enable = true;
-    firewall.enable = false;
+    firewall.enable = true;
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
   };
 
   programs.happ = {

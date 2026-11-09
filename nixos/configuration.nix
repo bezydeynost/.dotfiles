@@ -15,7 +15,7 @@
 
   nix = {
     settings = {
-      # substituters = [ "https://mirror.yandex.ru/nixos" ];
+      substituters = [ "https://mirror.yandex.ru/nixos" ];
       experimental-features = [
         "nix-command"
         "flakes"
@@ -24,23 +24,21 @@
       auto-optimise-store = true;
       warn-dirty = false;
     };
+    optimise = {
+      automatic = true;
+      dates = "weekly";
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
     extraOptions = ''
       !include ${config.age.secrets."github-token".path}
     '';
   };
 
   services = {
-    fast-nix-gc = {
-      enable = true;
-      automatic = true;
-      dates = "weekly";
-      deleteOlderThan = "14d";
-    };
-    fast-nix-optimise = {
-      enable = true;
-      automatic = true;
-      dates = "weekly";
-    };
     scx-loader = {
       enable = true;
       config = {

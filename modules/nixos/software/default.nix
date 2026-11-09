@@ -4,5 +4,6 @@
     ./gaming.nix
     ./flatpak.nix
     ./virtualisation.nix
+    ./git.nix
   ];
 }

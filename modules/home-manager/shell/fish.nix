@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   programs.fish = {
     enable = true;
-    package = pkgs.fishMinimal;
     shellAliases =
       let
         flakeDir = "~/.dotfiles";

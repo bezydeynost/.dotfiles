@@ -4,11 +4,15 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
-    fast-nix-gc.url = "github:Mic92/fast-nix-gc";
     happ-nix.url = "github:d4hl/happ-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    freshgram = {
+      url = "git+https://relay.ngit.dev/npub18eectrgnhcmmp6e0ec6sp3scf4mvs8nh4vk9pxq5hhsuej9y7qrsrv9dm4/freshgram-flake.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -35,11 +39,6 @@
 
     nixcord = {
       url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nvf = {
-      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -80,11 +79,6 @@
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -95,10 +89,8 @@
       nur,
       chaotic,
       nix-cachyos-kernel,
-      fast-nix-gc,
       helium-flake,
       happ-nix,
-      mangowm,
       ...
     }@inputs:
     let
@@ -121,9 +113,7 @@
             ./nixos/configuration.nix
             happ-nix.nixosModules.default
             nur.modules.nixos.default
-            mangowm.nixosModules.mango
             chaotic.nixosModules.default
-            fast-nix-gc.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = [

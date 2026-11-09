@@ -5,12 +5,9 @@
       protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+      extraCompatPackages = [ pkgs.proton-cachyos_x86_64_v3 ];
       localNetworkGameTransfers.openFirewall = true;
       fontPackages = with pkgs; [ liberation_ttf ];
-      extraCompatPackages = with pkgs; [
-        nur.repos.quriosity.proton-cachyos-v3
-        nur.repos.quriosity.proton-wineland-v3
-      ];
     };
     gamemode = {
       enable = true;
@@ -29,7 +26,7 @@
     wineWow64Packages.stable
     winetricks
     protontricks
-    #goverlay
+    goverlay
     faugus-launcher
     protonplus
   ];

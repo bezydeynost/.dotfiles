@@ -4,6 +4,8 @@
   ...
 }:
 {
+  imports = [ inputs.freshgram.nixosModules.default ];
+
   services = {
     gvfs.enable = true;
     flatpak.enable = true;
@@ -83,6 +85,7 @@
             double-conversion
             webkitgtk_4_1
             libsoup_3
+            libgpg-error
             zstd
           ];
       };
@@ -93,7 +96,6 @@
     niri.enable = true;
     niri.useNautilus = false;
     kdeconnect.enable = true;
-    mango.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -101,7 +103,6 @@
     vscodium
     helium
     nix-init
-    #lipa
     opencode
     antigravity-cli
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -109,7 +110,6 @@
     nicotine-plus
     onlyoffice-desktopeditors
     matugen
-    proton-authenticator
     aria2
     bibata-cursors
     qbittorrent-enhanced
@@ -127,9 +127,8 @@
     parabolic # Frontend yt-dlp
     gnome-calculator # Calculator
     gpu-screen-recorder-gtk # Fast record video
-    bazaar # Check Flatpaks
     telegram-desktop
-    darktable
+    #darktable
     samira
     imgbrd-grabber
     polkit_gnome
@@ -141,7 +140,6 @@
     openssl
     wget
     curl
-    git
     git-lfs
     gh
     nixfmt
@@ -156,7 +154,6 @@
     android-tools # ADB
     better-adb-sync
     v4l-utils
-    ntfs3g
     ffmpeg_7 # Обработка видео. Нужен всегда и везде как зависимость
     svt-av1 # Кодек для рендера в av1 на проце
     imagemagick # Обработка изображений. Мб тоже нужен всегда
@@ -263,8 +260,7 @@
     pamixer # PulseAudio cli (громкость редачу)
     droidcam
     cargo
-    cmake
-    go
+    rust-analyzer
     python313
     glib
     nixd
@@ -276,9 +272,6 @@
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
-    v2ray # VPN
-    xray # VPN
-    sing-box # VPN
     #ventoy-full-gtk
     zip # Архивировать
     unzip # Разархивировать
